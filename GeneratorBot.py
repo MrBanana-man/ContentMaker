@@ -37,6 +37,8 @@ script = [
     ("User 1", "and we need to make sure some messages fit properly"),
 ]
 
+topUserMessage = 'w' # Change based on what the top user message is this also means that the 6:12:18 messages will need to be sent by the same User
+
 # Directory paths
 Vdirectory = r'C:\Programing\PYTHON\Projects\ContentMaker\Bvideo'
 image_directory = r"C:\Programing\PYTHON\Projects\ContentMaker\Mpic"
@@ -252,7 +254,7 @@ def create_new_window():
             message_label = tk.Label(bubble_frame, text=message, bg=bubble_color, fg=text_color, font=("Helvetica", 10), wraplength=200)
             message_label.pack()
 
-            chat_canvas.create_window((10, chat_canvas.bbox("all")[3] + 20 if chat_canvas.bbox("all") else 10), window=frame, anchor='nw', width=chat_canvas.winfo_width() - 20)
+            chat_canvas.create_window((10, chat_canvas.bbox("all")[3] + 20 if chat_canvas.bbox("all") else 10), window=frame, anchor=topUserMessage, width=chat_canvas.winfo_width() - 20)
 
             chat_canvas.config(scrollregion=chat_canvas.bbox("all"))
             chat_canvas.yview_moveto(1)
